@@ -1,3 +1,53 @@
+
+.background-rojo{
+  background: rgb(228, 30, 30) !important;
+}
+
+.backgroundHover-rojo:hover{
+  background: rgb(228, 30, 30) !important;
+}
+
+/*Banner de información*/
+.banner {
+      background-color: #a4a4a4; 
+      color: white;
+      font-weight: bold;
+      height: 40px;
+      display: flex;
+      justify-content: center; 
+      align-items: center;
+      padding-top: 30px !important;
+      padding-bottom: 30px !important;
+    }
+
+    .banner-window {
+      width: 75%;        
+      overflow: hidden;    
+      position: relative;
+    }
+
+    .banner-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+    }
+
+    .banner-item {
+      margin: 0 100px; 
+      white-space: nowrap;
+      font-size: 1.2rem;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+/*tarjetas*/
 .product-card {
       border: 1px solid #eee;
       padding: 10px;
