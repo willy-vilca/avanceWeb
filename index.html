@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Principal - Distribuidora San Martín</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/estilos-generales.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -47,7 +48,7 @@
                 <div class="col-md-5 mt-3" style="display: flex; flex-direction: row; align-self: center; justify-content: flex-end">
 
                     <div class="text-center" style=" width: 33%; height: 50px;margin-right:5px">
-                        <button class="btn btn-outline-dark"  style="width:100%;height:50px" type="button">CARRITO <i class="bi bi-cart2" style="height: 16px; margin-left: 10px;"></i></button>
+                        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#cartModal"  style="width:100%;height:50px" type="button">CARRITO <i class="bi bi-cart2" style="height: 16px; margin-left: 10px;"></i></button>
                     </div>
                     <div class="text-center" style=" width: 33%; height: 50px;margin-right:5px">
                         <button type="button" class="btn btn-outline-danger backgroundHover-rojo" style="width:100%;height:50px">INGRESAR</button>
@@ -545,7 +546,34 @@
         </div>
     </footer>
 
-    <script src="javaScript/index.js"></script>
+    <!-- Modal del carrito -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-white">
+                    <h5 class="modal-title">MI PEDIDO</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body cart-body">
+                    <div id="cartItems"></div>
+                </div>
+                <div class="modal-footer flex-column cart-footer w-100">
+                    <div class="d-flex justify-content-between w-100 mb-2 px-3">
+                        <strong>TOTAL:</strong>
+                        <strong id="cartTotal">$0</strong>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between w-100">
+                        <button class="btn btn-outline-dark me-2 flex-fill" data-bs-dismiss="modal">SEGUIR PIDIENDO</button>
+                        <button class="btn btn-outline-secondary me-2 flex-fill" onclick="finalizarPedido()">FINALIZAR PEDIDO</button>
+                        <button class="btn btn-outline-danger flex-fill" onclick="vaciarCarrito()">VACIAR CARRITO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="javaScript/funcionalidades.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
