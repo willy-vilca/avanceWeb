@@ -1,69 +1,79 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banner con Ventana Centrada</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    .banner {
-      background-color: #868585; 
-      color: white;
-      font-weight: bold;
-      height: 40px;
-      display: flex;
-      justify-content: center; 
-      align-items: center;
-      padding-top: 8px;
-      padding-bottom: 8px;
-    }
-
-    .banner-window {
-      width: 75%;        
-      overflow: hidden;    
-      position: relative;
-    }
-
-    .banner-track {
-      display: flex;
-      width: max-content;
-      animation: scroll 20s linear infinite;
-    }
-
-    .banner-item {
-      margin: 0 100px; 
-      white-space: nowrap;
-      font-size: 1.2rem;
-    }
-
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-  </style>
+  <title>Tests</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-  <div class="banner">
-    <div class="banner-window">
-      <div class="banner-track">
-        <!-- Contenido duplicado para el bucle-->
-        <div class="banner-item">📧 pedidos@mayoristaprecioscuiados.com.ar</div>
-        <div class="banner-item">☎ Teléfono: 3424440263</div>
-        <div class="banner-item">📍 Direcciones: Casa Central: Av. Blas Parera 96</div>
+<body class="bg-light">
+  <!-- Sección Políticas de Cambio y Devolución -->
+<section class="politicas py-5">
+  <!-- Banner superior -->
+  <div class="bg-danger text-white text-center py-4 shadow-banner">
+    <h2 class="fw-bold m-0">POLÍTICAS DE CAMBIO Y DEVOLUCIÓN</h2>
+  </div>
 
-        <div class="banner-item">📧 pedidos@mayoristaprecioscuiados.com.ar</div>
-        <div class="banner-item">☎ Teléfono: 3424440263</div>
-        <div class="banner-item">📍 Direcciones: Casa Central: Av. Blas Parera 96</div>
+  <!-- Contenido -->
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12">
+        <p class="text-secondary">
+          En Distribuidora San Martín queremos que estés satisfecho con tu compra, por eso podés solicitar a nuestro equipo de Atención al Cliente el cambio o devolución de un producto adquirido en nuestro sitio.
+          <br>A continuación, describimos nuestra política de cambios y devoluciones, con plazos y condiciones.
+          <br>Los motivos por los cuales puedes gestionar el cambio o la devolución de un producto son los siguientes:
+        </p>
+        <ul>
+          <li class="text-secondary">Producto defectuoso</li>
+          <li class="text-secondary">Producto llegó roto o con desperfecto.</li>
+          <li class="text-secondary">Producto con variantes (color, tamaño, entre otros) diferentes al pedido.</li>
+          <li class="text-secondary">Producto distinto al pedido.</li>
+        </ul>
+        <p class="text-secondary"><br>No se aceptan cambios y devoluciones de los productos que se encuentren:
+        <ul>
+          <li class="text-secondary">Usados.</li>
+          <li class="text-secondary">Sin alguno de sus accesorios, piezas, manuales, entre otros.</li>
+          <li class="text-secondary">Sin su envoltorio original (cajas, plásticos, entre otros).</li>
+          <li class="text-secondary">En condición diferente a las necesarias para productos de esa categoría.</li>
+        </ul>
+        </p>
+        <p class="text-secondary">
+          En caso de ser devolución o cambio, se enviará el nuevo producto o se restituirá el monto abonado en la cuenta bancaria utilizada para la compra.
+          <br>Lapso de tiempo para realizar dichos cambios, 5 días hábiles de una vez recibida la compra.
+          <br>
+          <small class="text-muted">*(Sugerimos que los productos que sean con pila o eléctricos sean probados una vez recibidos)</small>
+        </p>
       </div>
     </div>
   </div>
+</section>
+
+<!-- Estilos opcionales -->
+<style>
+.politicas {
+  min-height: 100vh; /* Que ocupe toda la pantalla */
+  display: flex;
+  flex-direction: column;
+}
+
+.politicas p, 
+.politicas ul {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Sombra sutil debajo del banner */
+.shadow-banner {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+</style>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,10 +1,16 @@
 
+/*Componente reutilizables*/
 .background-rojo{
   background: rgb(228, 30, 30) !important;
 }
 
 .backgroundHover-rojo:hover{
   background: rgb(228, 30, 30) !important;
+}
+
+/* Sombra sutil debajo del banner rojo (titulo de cada página) */
+.shadow-banner {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.65);
 }
 
 /*Banner de información*/
@@ -111,6 +117,19 @@
 
 .subcategoria:hover{
   color: red !important;
+}
+
+/*página-políticas de cambio y devolución*/
+.politicas {
+  display: flex;
+  flex-direction: column;
+}
+
+.politicas p, 
+.politicas ul {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.7;
 }
 
 /*seccion del Footer*/
