@@ -23,10 +23,10 @@ document.querySelectorAll('.dropdown-menu [data-bs-toggle="dropdown"]').forEach(
     let carrito = [
       { id: 1, nombre: "Juego ollas y sartenes de acero inoxidable super resistentes", precio: 99800, cantidad: 1, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
       { id: 2, nombre: "Tender ropa de 18 mm", precio: 34000, cantidad: 1, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
-      { id: 3, nombre: "Vaso térmico Labu", precio: 1400, cantidad: 2, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
+      { id: 3, nombre: "Vaso térmico Labu", precio: 1400, cantidad: 8, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
       { id: 4, nombre: "Juego ollas y sartenes de acero inoxidable super resistentes", precio: 99800, cantidad: 1, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
       { id: 5, nombre: "Tender ropa de 18 mm", precio: 34000, cantidad: 1, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
-      { id: 6, nombre: "Vaso térmico Labu", precio: 1400, cantidad: 2, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" }
+      { id: 6, nombre: "Vaso térmico Labu", precio: 1400, cantidad: 8, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" }
     ];
 
     function renderCarrito() {
@@ -53,14 +53,14 @@ document.querySelectorAll('.dropdown-menu [data-bs-toggle="dropdown"]').forEach(
               <input type="text" class="form-control text-center cantidadProducto" value="${producto.cantidad}" readonly>
               <button class="btn" onclick="cambiarCantidad(${producto.id}, 1)">+</button>
             </div>
-            <span class="text-danger fw-bold me-2">Total: $${subtotal.toLocaleString()}</span>
+            <span class="text-danger fw-bold me-2">Total: S/.${subtotal.toLocaleString()}</span>
             <button class="btn btn-remove ms-5" onclick="eliminarProducto(${producto.id})">✕</button>
           </div>
         `;
         cartItems.appendChild(item);
       });
 
-      cartTotal.textContent = "$" + total.toLocaleString();
+      cartTotal.textContent = "S/." + total.toLocaleString();
     }
 
     function cambiarCantidad(id, delta) {
@@ -82,7 +82,7 @@ document.querySelectorAll('.dropdown-menu [data-bs-toggle="dropdown"]').forEach(
     }
 
     function finalizarPedido() {
-      window.location.href = "#";
+      window.location.href = "/finalizarPedido.html";
     }
 
     // Render inicial

@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Distribuidora San Martín</title>
+    <title>Finalizar Pedido - Distribuidora San Martín</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/estilos-generales.css">
+    <link rel="stylesheet" href="css/finalizarPedido.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -48,6 +49,7 @@
                 <div class="col-md-5 mt-3" style="display: flex; flex-direction: row; align-self: center; justify-content: flex-end">
 
                     <div class="text-center" style=" width: 33%; height: 50px;margin-right:5px">
+                        <!--Este botón abre el modal del carrito de compras-->
                         <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#cartModal"  style="width:100%;height:50px" type="button">CARRITO <i class="bi bi-cart2" style="height: 16px; margin-left: 10px;"></i></button>
                     </div>
                     <div class="text-center" style=" width: 33%; height: 50px;margin-right:5px">
@@ -297,279 +299,120 @@
     </header>
     <!--Final del header-->
 
-  <!-- Sección productos-->
     <div class="container-fluid text-center background-rojo text-white fs-2 py-4 mt-5 shadow-banner">
-        <span class="fw-bold">COCINA // </span>OLLAS Y SARTENES
+        <span class="fw-bold">CONFIRMANDO PEDIDO</span>
     </div>
-    <div class="container my-5">
-        <div class="row g-4 mt-2">
-            <!-- Tarjeta 1 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" alt="Producto 1">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">MODER-4007/00</h6>
-                    <p class="fs-5">Sartén antiadherente 28cm</p>
-                    <div class="product-price">S/.217.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
 
-            <!-- Tarjeta 2 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/4480.jpg" alt="Producto 2">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">LAB-117-26003</h6>
-                    <p class="fs-5">Cacerola de Acero N°28</p>
-                    <div class="product-price">S/.120.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
-            <!-- Tarjeta 3 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395630.jpg" alt="Producto 3">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-6280</h6>
-                    <p class="fs-5">Panquequera-Mango de Madera 22cm</p>
-                    <div class="product-price">S/.150.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
-            <!-- Tarjeta 4 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://m.media-amazon.com/images/I/81dnHMrSnXL.jpg" alt="Producto 4">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-7582</h6>
-                    <p class="fs-5">Sartén de Marmol 26cm</p>
-                    <div class="product-price">S/.230.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
+    <div class="container" style="width:60vw;" id="contenedor-pedido">
+        <p class="fs-1 fw-bold mt-5">MI PEDIDO</p>
+        <div id="pedidoItems"></div>
+        <div class="d-flex justify-content-between w-100 fs-3 mt-5 py-3 ps-2 pe-3 background-totalPedido">
+            <strong class="fw-medium">SUBTOTAL:</strong>
+            <strong class="fw-medium" id="TotalPedido">$0</strong>
         </div>
-
-        <div class="row g-4 mt-2">
-            <!-- Tarjeta 1 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" alt="Producto 1">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">MODER-4007/00</h6>
-                    <p class="fs-5">Sartén antiadherente 28cm</p>
-                    <div class="product-price">S/.217.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/4480.jpg" alt="Producto 2">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">LAB-117-26003</h6>
-                    <p class="fs-5">Cacerola de Acero N°28</p>
-                    <div class="product-price">S/.120.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
-            <!-- Tarjeta 3 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395630.jpg" alt="Producto 3">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-6280</h6>
-                    <p class="fs-5">Panquequera-Mango de Madera 22cm</p>
-                    <div class="product-price">S/.150.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
-            <!-- Tarjeta 4 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://m.media-amazon.com/images/I/81dnHMrSnXL.jpg" alt="Producto 4">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-7582</h6>
-                    <p class="fs-5">Sartén de Marmol 26cm</p>
-                    <div class="product-price">S/.230.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
+        <div class="d-flex justify-content-between w-100 fs-3 ps-2 pe-3 py-3 background-descuento">
+            <strong class="fw-medium">DESCUENTO:</strong>
+            <strong class="fw-medium" id="descuentoPedido">$0</strong>
         </div>
-
-        <div class="row g-4 mt-2">
-            <!-- Tarjeta 1 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" alt="Producto 1">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">MODER-4007/00</h6>
-                    <p class="fs-5">Sartén antiadherente 28cm</p>
-                    <div class="product-price">S/.217.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
-            <!-- Tarjeta 2 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/4480.jpg" alt="Producto 2">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">LAB-117-26003</h6>
-                    <p class="fs-5">Cacerola de Acero N°28</p>
-                    <div class="product-price">S/.120.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
-            <!-- Tarjeta 3 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395630.jpg" alt="Producto 3">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-6280</h6>
-                    <p class="fs-5">Panquequera-Mango de Madera 22cm</p>
-                    <div class="product-price">S/.150.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
-            <!-- Tarjeta 4 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://m.media-amazon.com/images/I/81dnHMrSnXL.jpg" alt="Producto 4">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-7582</h6>
-                    <p class="fs-5">Sartén de Marmol 26cm</p>
-                    <div class="product-price">S/.230.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
+        <div class="d-flex justify-content-between w-100 fs-3 py-3 ps-2 pe-3 background-totalPedido">
+            <strong class="fw-bold">TOTAL:</strong>
+            <strong class="fw-bold" id="TotalPedidoNeto">$0</strong>
         </div>
+    </div>
 
-        <div class="row g-4 mt-2">
-            <!-- Tarjeta 1 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" alt="Producto 1">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">MODER-4007/00</h6>
-                    <p class="fs-5">Sartén antiadherente 28cm</p>
-                    <div class="product-price">S/.217.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+    <div class="container mt-5 informacion-pedido">
+        <h1 class="fw-bold my-5">INFORMACIÓN DEL PEDIDO</h1>
+        <h2 class="fw-semibold my-5" id="datosPersonales">DATOS PERSONALES</h2>
+        <form class="row g-4">
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control info-input" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput" class="info-label">Nombre y Apellido</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword" class="info-label">Email</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control info-input" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput" class="info-label">Teléfono</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword" class="info-label">Número de Documento</label>
                 </div>
             </div>
 
-            <!-- Tarjeta 2 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/4480.jpg" alt="Producto 2">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">LAB-117-26003</h6>
-                    <p class="fs-5">Cacerola de Acero N°28</p>
-                    <div class="product-price">S/.120.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+
+            <h2 class="fw-semibold mt-5 mb-4" id="datosEnvio">DATOS DE ENVÍO</h2>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Seleccione una Región</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Región</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Seleccione una Provincia</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Provincia</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Seleccione un Distrito</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Distrito</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword" class="info-label">Código Postal</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword" class="info-label">Direccion</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4"></div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Seleccione un método de pago</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Forma de Pago</label>
                 </div>
             </div>
 
-            <!-- Tarjeta 3 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395630.jpg" alt="Producto 3">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-6280</h6>
-                    <p class="fs-5">Panquequera-Mango de Madera 22cm</p>
-                    <div class="product-price">S/.150.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
 
-            <!-- Tarjeta 4 -->
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="product-card">
-                    <img src="https://m.media-amazon.com/images/I/81dnHMrSnXL.jpg" alt="Producto 4">
-                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-7582</h6>
-                    <p class="fs-5">Sartén de Marmol 26cm</p>
-                    <div class="product-price">S/.230.00</div>
-                    <div class="qty-controls">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
-                        <input type="number" class="form-control mx-1" value="1" min="1">
-                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
-                    </div>
-                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
-                </div>
-            </div>
-
-        </div>
-        
+        </form>
     </div>
 
     <!-- Footer -->
@@ -643,7 +486,9 @@
         </div>
     </div>
 
+
     <script src="javaScript/funcionalidades.js"></script>
+    <script src="javaScript/finalizarPedido.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
