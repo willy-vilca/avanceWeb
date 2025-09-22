@@ -303,23 +303,25 @@
         <span class="fw-bold">CONFIRMANDO PEDIDO</span>
     </div>
 
+    <!--Contenedor de los productos del pedido-->
     <div class="container" style="width:60vw;" id="contenedor-pedido">
         <p class="fs-1 fw-bold mt-5">MI PEDIDO</p>
         <div id="pedidoItems"></div>
-        <div class="d-flex justify-content-between w-100 fs-3 mt-5 py-3 ps-2 pe-3 background-totalPedido">
+        <div class="d-flex justify-content-between w-100 fs-3 mt-5 py-3 ps-2 pe-3 background-totalPedido shadow-sm">
             <strong class="fw-medium">SUBTOTAL:</strong>
             <strong class="fw-medium" id="TotalPedido">$0</strong>
         </div>
-        <div class="d-flex justify-content-between w-100 fs-3 ps-2 pe-3 py-3 background-descuento">
+        <div class="d-flex justify-content-between w-100 fs-3 ps-2 pe-3 py-3 background-descuento shadow-sm">
             <strong class="fw-medium">DESCUENTO:</strong>
             <strong class="fw-medium" id="descuentoPedido">$0</strong>
         </div>
-        <div class="d-flex justify-content-between w-100 fs-3 py-3 ps-2 pe-3 background-totalPedido">
+        <div class="d-flex justify-content-between w-100 fs-3 py-3 ps-2 pe-3 background-totalPedido shadow-sm">
             <strong class="fw-bold">TOTAL:</strong>
             <strong class="fw-bold" id="TotalPedidoNeto">$0</strong>
         </div>
     </div>
 
+    <!--Formulario de los datos del cliente-->
     <div class="container mt-5 informacion-pedido">
         <h1 class="fw-bold my-5">INFORMACIÓN DEL PEDIDO</h1>
         <h2 class="fw-semibold my-5" id="datosPersonales">DATOS PERSONALES</h2>
@@ -417,8 +419,13 @@
                 </div>
             </div>
 
+            <div class="col-12 text-center text-sm-end mt-5 pt-4">
+                <button type="submit" id="botonConfirmarPedido" class="btn btn-danger background-rojo fw-bold py-3 px-5"><span class="mx-4 fs-5">CONFIRMAR PEDIDO</span></button>
+            </div>
+
         </form>
     </div>
+    <!-- Fin formulario  -->
 
     <!-- Footer -->
     <footer>

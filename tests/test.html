@@ -1,249 +1,626 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carrito de Compras</title>
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    /* Modal */
-    .modal-content {
-      border-radius: 8px;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.3);
-    }
-    .modal-header {
-      background-color: rgb(228, 30, 30) !important;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-    }
-    .modal-header h5 {
-      font-size: 1.4rem;
-      font-weight: bold;
-    }
-    .btn-close-white {
-      filter: brightness(0) invert(1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tests - Distribuidora San Martín</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/estilos-generales.css">
+    <link rel="stylesheet" href="/css/finalizarPedido.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+/* Contenedor general botones flotantes*/
+.botones-flotantes {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
 
-    /* Contenedor de productos */
-    .cart-body {
-      max-height: 400px; 
-      overflow-y: auto;
-      padding: 15px;
-    }
-    .cart-item {
-      background: #fafafa;
-      border-radius: 6px;
-      padding: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
-    .product-img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-    .product-name {
-      font-size: 1.1rem;
-      font-weight: 500;
-      max-width: 17vw;
-    }
-    .text-truncate {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+/* Estilo base de todos los botones */
+.btn-flotante {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
 
-    /* Acciones producto */
-    .input-group input {
-      border: 1px solid rgb(228, 30, 30);
-    }
-    .input-group .btn {
-      border: 1px solid rgb(228, 30, 30);
-      color: rgb(228, 30, 30);
-    }
-    .input-group .btn:hover {
-      background-color: rgb(228, 30, 30);
-      color: #fff;
-    }
-    .btn-remove {
-      border: 1px solid rgb(228, 30, 30);
-      border-radius: 50%;
-      width: 57px;
-      height: 32px;
-      padding: 0;
-      font-weight: bold;
-      color: rgb(228, 30, 30);
-    }
-    .btn-remove:hover {
-      background-color: rgb(228, 30, 30);
-      color: white;
-    }
+/* WhatsApp */
+.btn-flotante.whatsapp {
+  background-color: #25D366;
+}
 
-    /* Footer */
-    .cart-footer {
-      background: white;
-      border-top: 1px solid #eee;
-      padding-top: 15px;
-    }
-    .cart-footer strong {
-      font-size: 1.1rem;
-    }
-    .cart-footer .btn {
-      border-radius: 0;
-      font-weight: 500;
-      padding: 10px;
-    }
-    .btn-outline-danger {
-      border: 1px solid rgb(228, 30, 30);
-      color: rgb(228, 30, 30);
-    }
-    .btn-outline-danger:hover {
-      background-color: rgb(228, 30, 30);
-      color: #fff;
-    }
+/* Carrito */
+.btn-flotante.carrito {
+  background-color: #000;
+}
 
-    .cantidadProducto{
-      max-width:3rem !important;
-    }
+/* Volver arriba */
+.btn-volver-arriba {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: rgb(228, 30, 30);
+  color: #fff;
+  border: none;
+  font-size: 22.5px;
+  font-weight: bold;
+  display: none; /* Oculto por defecto */
+  align-self: flex-end;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
 
-    /* RESPONSIVE */
-    @media (max-width: 576px) {
-      .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .product-actions {
-        margin-top: 10px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-      }
-      .input-group {
-        width: 100px;
-        margin-bottom: 8px;
-      }
-      .product-name {
-        max-width: 60vw;
-      }
-      .cart-footer .btn {
-        width: 100%;
-        margin-bottom: 8px;
-      }
-      .btn-remove{
-        width: 30px;
-      }
-    }
-  </style>
+/* Efecto hover */
+.btn-flotante:hover,
+.btn-volver-arriba:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .btn-flotante {
+    border-radius: 50%;
+    padding: 12px;
+    justify-content: center;
+  }
+
+  .btn-flotante .texto-boton {
+    display: none; /* Solo mostrar ícono en pantallas pequeñas */
+  }
+
+  .btn-flotante i {
+    font-size: 20px;
+  }
+  .btn-volver-arriba{
+    display: none !important;
+  }
+}
+
+    </style>
 </head>
 <body class="bg-light">
-
-  <!-- Botón para abrir carrito -->
-  <div class="container text-center my-5">
-    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cartModal">Ver Carrito</button>
-  </div>
-
-  <!-- Modal del carrito -->
-  <div class="modal fade" id="cartModal" tabindex="-1">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header text-white">
-          <h5 class="modal-title">MI PEDIDO</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+    <header>
+        <div class="container-fluid text-center background-rojo text-white fs-5 py-3 fw-bold">
+            Compra mínima en la Web: S/. 300.00
         </div>
-        <div class="modal-body cart-body">
-          <div id="cartItems"></div>
-        </div>
-        <div class="modal-footer flex-column cart-footer w-100">
-          <div class="d-flex justify-content-between w-100 mb-2 px-3">
-            <strong>TOTAL:</strong>
-            <strong id="cartTotal">$0</strong>
-          </div>
-          <div class="d-flex flex-wrap justify-content-between w-100">
-            <button class="btn btn-outline-dark me-2 flex-fill" data-bs-dismiss="modal">SEGUIR PIDIENDO</button>
-            <button class="btn btn-outline-secondary me-2 flex-fill" onclick="finalizarPedido()">FINALIZAR PEDIDO</button>
-            <button class="btn btn-outline-danger flex-fill" onclick="vaciarCarrito()">VACIAR CARRITO</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="banner">
+            <div class="banner-window">
+                <div class="banner-track">
+                    <!-- Contenido duplicado para el bucle-->
+                    <div class="banner-item"><i class="bi bi-envelope-at"></i> pedidos@distribuidoraSanMartin.com.ar</div>
+                    <div class="banner-item"><i class="bi bi-telephone-outbound"></i> Teléfono: 3424440263</div>
+                    <div class="banner-item"><i class="bi bi-geo-alt"></i> Direccion: 11001 Pachacutec, Carretera de Tate, Ica</div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Array de productos del carrito
-    let carrito = [
-      { id: 1, nombre: "Juego ollas y sartenes de acero inoxidable super resistentes", precio: 99800, cantidad: 1, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
-      { id: 2, nombre: "Tender ropa de 18 mm", precio: 34000, cantidad: 1, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
-      { id: 3, nombre: "Vaso térmico Labu", precio: 1400, cantidad: 2, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
-      { id: 4, nombre: "Juego ollas y sartenes de acero inoxidable super resistentes", precio: 99800, cantidad: 1, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
-      { id: 5, nombre: "Tender ropa de 18 mm", precio: 34000, cantidad: 1, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" },
-      { id: 6, nombre: "Vaso térmico Labu", precio: 1400, cantidad: 2, imagen: "https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" }
-    ];
-
-    function renderCarrito() {
-      const cartItems = document.getElementById("cartItems");
-      const cartTotal = document.getElementById("cartTotal");
-      cartItems.innerHTML = "";
-      let total = 0;
-
-      carrito.forEach(producto => {
-        let subtotal = producto.precio * producto.cantidad;
-        total += subtotal;
-
-        let item = document.createElement("div");
-        item.classList.add("cart-item");
-
-        item.innerHTML = `
-          <div class="d-flex align-items-center">
-            <img src="${producto.imagen}" class="product-img me-2">
-            <span class="text-truncate product-name">${producto.nombre}</span>
-          </div>
-          <div class="d-flex align-items-center product-actions">
-            <div class="input-group input-group-sm me-1">
-              <button class="btn" onclick="cambiarCantidad(${producto.id}, -1)">-</button>
-              <input type="text" class="form-control text-center cantidadProducto" value="${producto.cantidad}" readonly>
-              <button class="btn" onclick="cambiarCantidad(${producto.id}, 1)">+</button>
+                    <div class="banner-item"><i class="bi bi-envelope-at"></i> pedidos@distribuidoraSanMartin.com.ar</div>
+                    <div class="banner-item"><i class="bi bi-telephone-outbound"></i> Teléfono: 3424440263</div>
+                    <div class="banner-item"><i class="bi bi-geo-alt"></i> Direccion: 11001 Pachacutec, Carretera de Tate, Ica</div>
+                </div>
             </div>
-            <span class="text-danger fw-bold me-2">Total: $${subtotal.toLocaleString()}</span>
-            <button class="btn btn-remove ms-5" onclick="eliminarProducto(${producto.id})">✕</button>
-          </div>
-        `;
-        cartItems.appendChild(item);
-      });
+        </div>
 
-      cartTotal.textContent = "$" + total.toLocaleString();
-    }
+        <div class="container">
+            <div class="row mb-3 mx-5">
+                <div class="col-md-2 text-end mt-2">
+                    <a href="index.html"><img style="height: 90px; width: auto;" src="img/index/logo empresa.png" alt="Logo de la empresa"></a>
+                </div>
+                
+                <div class="col-md-5 mt-3" style="display: flex; align-self: center; flex-direction: row">
 
-    function cambiarCantidad(id, delta) {
-      let producto = carrito.find(p => p.id === id);
-      if (!producto) return;
-      producto.cantidad += delta;
-      if (producto.cantidad < 1) producto.cantidad = 1;
-      renderCarrito();
-    }
+                    <input type="text" placeholder="¿Qué estás buscando?"  style="width:100%;border: 1px solid #E21318; border-radius: 5px; border-bottom-right-radius: 0px; border-top-right-radius: 0px; height: 40px; padding: 10px">
+                    <div class="text-center" style="background: #E21318; width: 40px; height: 40px; border-radius: 5px; border-bottom-left-radius: 0px; border-top-left-radius: 0px; cursor: pointer">
+                        <i class="bi bi-search" style="font-size: 18px; line-height: 40px; color: #fff"></i>
+                    </div>
 
-    function eliminarProducto(id) {
-      carrito = carrito.filter(p => p.id !== id);
-      renderCarrito();
-    }
+                </div>
+                
+                <div class="col-md-5 mt-3" style="display: flex; flex-direction: row; align-self: center; justify-content: flex-end">
 
-    function vaciarCarrito() {
-      carrito = [];
-      renderCarrito();
-    }
+                    <div class="text-center" style=" width: 33%; height: 50px;margin-right:5px">
+                        <!--Este botón abre el modal del carrito de compras-->
+                        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#cartModal"  style="width:100%;height:50px" type="button">CARRITO <i class="bi bi-cart2" style="height: 16px; margin-left: 10px;"></i></button>
+                    </div>
+                    <div class="text-center" style=" width: 33%; height: 50px;margin-right:5px">
+                        <button type="button" class="btn btn-outline-danger backgroundHover-rojo" style="width:100%;height:50px">INGRESAR</button>
+                    </div>
+                </div>                
+            </div>
+        </div>
 
-    function finalizarPedido() {
-      window.location.href = "#";
-    }
+        <!--Barra de navegación-->
+        <nav class="navbar navbar-expand-lg bg-transparent">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item me-3 ms-5">
+                            <!-- menú desplegable de productos -->
+                            <div class="dropdown">
+                                <button class="btn btn-danger background-rojo fw-bold dropdown-toggle" style="width:100%;height:45px" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                PRODUCTOS
+                                </button>
+                                <ul class="dropdown-menu">
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria fw-bold" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Acessorios para celulares
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Auriculares</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cables</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cargadores/Adaptadores</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Cocina
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Accesorios de Cocina</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Ollas y Sartenes</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Vasos y Tazas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Platos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Repostería</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Belleza y cuidado personal
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Maquillaje</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cepillos y Peines</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cremas corporales</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Accesorios de Higiene</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Colonias</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Calzado
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Zapatos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Zapatillas Deportivas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Zapatillas Casuales</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Sandalias</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Pantuflas</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Electrónica
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Pilas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Teclados/Mouse</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Parlantes</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Iluminación</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Extensiones</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Ferretería
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Herramientas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Candados</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Infladores</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Hogar y decoración
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Alfombras</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Relojes</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Organizadores</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Adornos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Abarrotes
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Conservas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Lácteos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Refrigerados</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Bebidas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Jardinería
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Decoración</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Floreros</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Macetas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Juguetería
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Juegos de Mesa</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Pelotas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Rompecabezas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Peluches</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Libros</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Librería
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cuadernos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Materiales</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Carpetas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Adhesivos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                    </ul>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="dropend">
+                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                    Limpieza
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Artículos de Limpieza</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Balde</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Trapos</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Escobas</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item subcategoria" href="productos.html">Accesorios de Baño</a></li>
+                                    </ul>
+                                </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item mx-3">
+                        <a class="nav-link active fw-bold" aria-current="page" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                        <a class="nav-link fw-bold" href="#">¿QUIÉNES SOMOS?</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                        <a class="nav-link fw-bold" href="#">SUCURSALES</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                        <a class="nav-link fw-bold" href="#">PREGUNTAS FRECUENTES</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                        <a class="nav-link fw-bold" href="cambio y devolucion.html">CAMBIO Y DEVOLUCIÓN</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                        <button type="button" class="btn btn-dark fw-bold" style="width:100%;height:45px">CATALOGO PERS.</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!--Final del header-->
 
-    // Render inicial
-    renderCarrito();
-  </script>
-</body>
+    <div class="container-fluid text-center background-rojo text-white fs-2 py-4 mt-5 shadow-banner">
+        <span class="fw-bold">CONFIRMANDO PEDIDO</span>
+    </div>
+
+    <!--Contenedor de los productos del pedido-->
+    <div class="container" style="width:60vw;" id="contenedor-pedido">
+        <p class="fs-1 fw-bold mt-5">MI PEDIDO</p>
+        <div id="pedidoItems"></div>
+        <div class="d-flex justify-content-between w-100 fs-3 mt-5 py-3 ps-2 pe-3 background-totalPedido shadow-sm">
+            <strong class="fw-medium">SUBTOTAL:</strong>
+            <strong class="fw-medium" id="TotalPedido">$0</strong>
+        </div>
+        <div class="d-flex justify-content-between w-100 fs-3 ps-2 pe-3 py-3 background-descuento shadow-sm">
+            <strong class="fw-medium">DESCUENTO:</strong>
+            <strong class="fw-medium" id="descuentoPedido">$0</strong>
+        </div>
+        <div class="d-flex justify-content-between w-100 fs-3 py-3 ps-2 pe-3 background-totalPedido shadow-sm">
+            <strong class="fw-bold">TOTAL:</strong>
+            <strong class="fw-bold" id="TotalPedidoNeto">$0</strong>
+        </div>
+    </div>
+
+    <!--Formulario de los datos del cliente-->
+    <div class="container mt-5 informacion-pedido">
+        <h1 class="fw-bold my-5">INFORMACIÓN DEL PEDIDO</h1>
+        <h2 class="fw-semibold my-5" id="datosPersonales">DATOS PERSONALES</h2>
+        <form class="row g-4">
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control info-input" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput" class="info-label">Nombre y Apellido</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword" class="info-label">Email</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control info-input" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput" class="info-label">Teléfono</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword" class="info-label">Número de Documento</label>
+                </div>
+            </div>
+
+
+            <h2 class="fw-semibold mt-5 mb-4" id="datosEnvio">DATOS DE ENVÍO</h2>
+
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Seleccione una Región</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Región</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Seleccione una Provincia</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Provincia</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Seleccione un Distrito</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Distrito</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword" class="info-label">Código Postal</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword" class="info-label">Direccion</label>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4"></div>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="form-floating mb-3">
+                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Seleccione un método de pago</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                    <label for="floatingSelect">Forma de Pago</label>
+                </div>
+            </div> 
+            <div class="col-12">
+                <div class="form-floating">
+                    <textarea class="form-control info-input" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 180px"></textarea>
+                    <label for="floatingTextarea2">Observaciones...</label>
+                </div>
+            </div>
+
+            <div class="col-12 text-center text-sm-end mt-5 pt-4">
+                <button type="submit" id="botonConfirmarPedido" class="btn btn-danger background-rojo fw-bold py-3 px-5"><span class="mx-4 fs-5">CONFIRMAR PEDIDO</span></button>
+            </div>
+
+        </form>
+    </div>
+    <!-- Fin formulario  -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="background-rojo text-white py-3 footer-red-section">
+            <div class="container">
+
+                <div class="row justify-content-around align-items-center text-center">
+                    <div class="col-12 col-md-5 me-5 d-flex justify-content-around align-items-center footer-social">
+                        <a href="#"><i class="fab fa-facebook fa-3x footer-icon-large"></i></a>
+                        <a href="#"><i class="fab fa-instagram fa-3x footer-icon-large"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp fa-3x footer-icon-large"></i></a>
+                    </div>
+
+                    
+                    <div class="col-12 col-md-5 ms-5 d-flex justify-content-end align-items-center footer-extra">
+                        <div class="text-center mx-5">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5949/5949054.png" alt="Envios" class="footer-icon-img-large">
+                        <p class="mt-2 mb-0">Envíos a Domicilio</p>
+                        </div>
+                        <div class="text-center mx-5">
+                        <img src="https://img.freepik.com/vector-premium/icono-navegacion-tienda-graficos-vectoriales-negro_1178600-1146.jpg?w=360" alt="Sucursales" class="footer-icon-img-large">
+                        <p class="mt-2 mb-0">3 Sucursales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3868.826080156572!2d-75.69865572531693!3d-14.146320384537802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91111fb2e3d06aa1%3A0xd219a3bef67ea7df!2sFUNDO%20Y%20BODEGA%20%22SAN%20MART%C3%8DN%22!5e0!3m2!1ses!2spe!4v1758150524201!5m2!1ses!2spe" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="bg-black text-white fs-5 py-4 ps-5 text-center d-flex flex-column flex-md-row justify-content-start align-items-center gap-2">
+            <span class="ms-5">&copy; Copyright</span>
+            <span> Todos Los Derechos Reservados.</span>
+        </div>
+    </footer>
+
+    <!-- Modal del carrito -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-white">
+                    <h5 class="modal-title">MI PEDIDO</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body cart-body">
+                    <div id="cartItems"></div>
+                </div>
+                <div class="modal-footer flex-column cart-footer w-100">
+                    <div class="d-flex justify-content-between w-100 mb-2 px-3">
+                        <strong>TOTAL:</strong>
+                        <strong id="cartTotal">$0</strong>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-between w-100">
+                        <button class="btn btn-outline-dark me-2 flex-fill" data-bs-dismiss="modal">SEGUIR PIDIENDO</button>
+                        <button class="btn btn-outline-secondary me-2 flex-fill" onclick="finalizarPedido()">FINALIZAR PEDIDO</button>
+                        <button class="btn btn-outline-danger flex-fill" onclick="vaciarCarrito()">VACIAR CARRITO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Botones flotantes -->
+<div class="botones-flotantes">
+    <!-- Volver arriba -->
+  <button class="btn-volver-arriba" id="btnArriba">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+  <!-- Carrito -->  
+  <button class="btn-flotante carrito" id="btnCarrito" data-bs-toggle="modal" data-bs-target="#cartModal">
+    <i class="bi bi-cart3"></i>
+    <span class="texto-boton">Abrir carrito de pedido</span>
+  </button>
+  <!-- WhatsApp -->
+  <a href="https://wa.me/51999999999" target="_blank" class="btn-flotante whatsapp">
+    <i class="bi bi-whatsapp"></i>
+    <span class="texto-boton">¡Consultanos por Whatsapp!</span>
+  </a>
+</div>
+  
+
+    <script src="/javaScript/funcionalidades.js"></script>
+    <script src="/javaScript/finalizarPedido.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+      // Botón volver arriba
+const btnArriba = document.getElementById("btnArriba");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    btnArriba.style.display = "flex";
+  } else {
+    btnArriba.style.display = "none";
+  }
+});
+
+btnArriba.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+    </script>
+  </body>
 </html>

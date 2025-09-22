@@ -41,6 +41,7 @@ document.querySelectorAll('.dropdown-menu [data-bs-toggle="dropdown"]').forEach(
 
         let item = document.createElement("div");
         item.classList.add("cart-item");
+        item.classList.add("shadow");
 
         item.innerHTML = `
           <div class="d-flex align-items-center">
@@ -89,3 +90,23 @@ document.querySelectorAll('.dropdown-menu [data-bs-toggle="dropdown"]').forEach(
     renderCarrito();
 
 /*Fin del carrito de compras */ 
+
+
+/*Funcion boton flotante*/
+const btnArriba = document.getElementById("btnArriba");
+const btnCarrito = document.getElementById("btnCarrito");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    btnArriba.classList.add("show");
+    btnCarrito.classList.add("show");
+  } else {
+    btnArriba.classList.remove("show");
+    btnCarrito.classList.remove("show");
+  }
+});
+
+btnArriba.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+/*Fin boton flotante*/

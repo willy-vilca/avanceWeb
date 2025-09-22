@@ -28,6 +28,7 @@
         let itemPedido = document.createElement("div");
         itemPedido.classList.add("cart-item");
         itemPedido.classList.add("pedido");
+        itemPedido.classList.add("shadow-sm");
 
         itemPedido.innerHTML = `
             <div class="d-flex align-items-center">
