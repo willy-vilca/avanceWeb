@@ -255,6 +255,10 @@
   .btn-volver-arriba{
     display: none !important;
   }
+  .menuProductos{
+    overflow-y: auto;
+    height: 300px;
+  }
 }
 
 /* Fin botones flotantes*/
