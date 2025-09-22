@@ -82,7 +82,7 @@ document.querySelectorAll('.dropdown-menu [data-bs-toggle="dropdown"]').forEach(
     }
 
     function finalizarPedido() {
-      window.location.href = "/finalizarPedido.html";
+      window.location.href = "finalizarPedido.html";
     }
 
     // Render inicial
