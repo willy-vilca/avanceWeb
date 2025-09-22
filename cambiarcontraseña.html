@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambio y Devolución - Distribuidora San Martín</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/estilos-generales.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambia tu contraseña - Distribuidora San Martín</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/estilos-generales.css">
+  <link rel="stylesheet" href="css/cambiarcontraseña.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -298,46 +299,58 @@
     </header>
     <!--Final del header-->
 
-    <!-- Sección Políticas de Cambio y Devolución -->
-    <section class="politicas pt-5">
-        <!-- Banner superior -->
-        <div class="background-rojo text-white text-center py-4 shadow-banner fw-bold fs-2">
-            POLÍTICAS DE CAMBIO Y DEVOLUCIÓN
+  <!-- Contenido principal (Formulario login) -->
+        <div class="container-fluid text-center background-rojo text-white fs-2 py-4 shadow-banner">
+        <span class="fw-bold">CAMBIA TU CONTRASEÑA</span>
         </div>
+<!-- Formulario centrado -->
+<div class="d-flex custom-form justify-content-center align-items-center">
+  <form class="px-4 py-3" style="width: 100%; max-width: 600px;">
 
-        <!-- Contenido -->
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-md-12">
-                    <p class="text-secondary">
-                        En Distribuidora San Martín queremos que estés satisfecho con tu compra, por eso podés solicitar a nuestro equipo de Atención al Cliente el cambio o devolución de un producto adquirido en nuestro sitio.
-                        <br>A continuación, describimos nuestra política de cambios y devoluciones, con plazos y condiciones.
-                        <br>Los motivos por los cuales puedes gestionar el cambio o la devolución de un producto son los siguientes:
-                    </p>
-                    <ul>
-                        <li class="text-secondary">Producto defectuoso</li>
-                        <li class="text-secondary">Producto llegó roto o con desperfecto.</li>
-                        <li class="text-secondary">Producto con variantes (color, tamaño, entre otros) diferentes al pedido.</li>
-                        <li class="text-secondary">Producto distinto al pedido.</li>
-                    </ul>
-                    <p class="text-secondary"><br>No se aceptan cambios y devoluciones de los productos que se encuentren:
-                        <ul>
-                            <li class="text-secondary">Usados.</li>
-                            <li class="text-secondary">Sin alguno de sus accesorios, piezas, manuales, entre otros.</li>
-                            <li class="text-secondary">Sin su envoltorio original (cajas, plásticos, entre otros).</li>
-                            <li class="text-secondary">En condición diferente a las necesarias para productos de esa categoría.</li>
-                        </ul>
-                        </p>
-                        <p class="text-secondary">
-                            En caso de ser devolución o cambio, se enviará el nuevo producto o se restituirá el monto abonado en la cuenta bancaria utilizada para la compra.
-                        <br>Lapso de tiempo para realizar dichos cambios, 5 días hábiles de una vez recibida la compra.
-                        <br>
-                        <small class="text-muted">*(Sugerimos que los productos que sean con pila o eléctricos sean probados una vez recibidos)</small>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Correo -->
+    <div class="mt-5">
+    <input 
+        type="email" 
+        class="form-control border-0 border-bottom rounded-0 shadow-none bg-transparent" 
+        id="exampleDropdownFormEmail1" 
+        placeholder="Correo electrónico...">
+    </div>
+
+    <!-- Contraseña Actual -->
+    <div class="my-3">
+    <input 
+        type="email" 
+        class="form-control border-0 border-bottom rounded-0 shadow-none bg-transparent" 
+        id="exampleDropdownFormEmail1" 
+        placeholder="Contraseña Actual...">
+    </div>
+
+    <!-- Nueva Contraseña -->
+    <div class="mb-3">
+    <input 
+        type="email" 
+        class="form-control border-0 border-bottom rounded-0 shadow-none bg-transparent" 
+        id="exampleDropdownFormEmail1" 
+        placeholder="Nueva Contraseña...">
+    </div>
+
+    <!-- Confirmar Contraseña -->
+    <div class="mb-3">
+    <input 
+        type="email" 
+        class="form-control border-0 border-bottom rounded-0 shadow-none bg-transparent" 
+        id="exampleDropdownFormEmail1" 
+        placeholder="Confirmar nueva Contraseña...">
+    </div>
+
+    <!-- Boton cambiar  contraseña -->
+    <button type="submit" class="btn-black btn-outline-dark w-100 my-3 py-2 rounded-0">
+    Cambiar contraseña
+    </button>
+
+  </form>
+</div>
+  </main>
 
     <!-- Footer -->
     <footer>
@@ -429,6 +442,7 @@
         </a>
     </div>
 
+    <script src="javaScript/index.js"></script>
     <script src="javaScript/funcionalidades.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
