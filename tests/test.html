@@ -3,99 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tests - Distribuidora San Martín</title>
+    <title>Pagina Principal - Distribuidora San Martín</title>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/estilos-generales.css">
-    <link rel="stylesheet" href="/css/finalizarPedido.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <style>
-/* Contenedor general botones flotantes*/
-.botones-flotantes {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 1000;
-}
-
-/* Estilo base de todos los botones */
-.btn-flotante {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-}
-
-/* WhatsApp */
-.btn-flotante.whatsapp {
-  background-color: #25D366;
-}
-
-/* Carrito */
-.btn-flotante.carrito {
-  background-color: #000;
-}
-
-/* Volver arriba */
-.btn-volver-arriba {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background-color: rgb(228, 30, 30);
-  color: #fff;
-  border: none;
-  font-size: 22.5px;
-  font-weight: bold;
-  display: none; /* Oculto por defecto */
-  align-self: flex-end;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-}
-
-/* Efecto hover */
-.btn-flotante:hover,
-.btn-volver-arriba:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-  .btn-flotante {
-    border-radius: 50%;
-    padding: 12px;
-    justify-content: center;
-  }
-
-  .btn-flotante .texto-boton {
-    display: none; /* Solo mostrar ícono en pantallas pequeñas */
-  }
-
-  .btn-flotante i {
-    font-size: 20px;
-  }
-  .btn-volver-arriba{
-    display: none !important;
-  }
-}
-
-    </style>
 </head>
 <body class="bg-light">
     <header>
@@ -118,12 +31,12 @@
         </div>
 
         <div class="container">
-            <div class="row mb-3 mx-5">
-                <div class="col-md-2 text-end mt-2">
-                    <a href="index.html"><img style="height: 90px; width: auto;" src="img/index/logo empresa.png" alt="Logo de la empresa"></a>
+            <div class="row mb-3 mx-0 mx-lg-5">
+                <div class="col-md-2 text-start text-lg-end mt-2">
+                    <a href="index.html"><img style="height: 90px; width: auto;" src="/img/index/logo empresa.png" alt="Logo de la empresa"></a>
                 </div>
                 
-                <div class="col-md-5 mt-3" style="display: flex; align-self: center; flex-direction: row">
+                <div class="col-md-5 mt-3 ms-0 ms-lg-0" style="display: flex; align-self: center; flex-direction: row;">
 
                     <input type="text" placeholder="¿Qué estás buscando?"  style="width:100%;border: 1px solid #E21318; border-radius: 5px; border-bottom-right-radius: 0px; border-top-right-radius: 0px; height: 40px; padding: 10px">
                     <div class="text-center" style="background: #E21318; width: 40px; height: 40px; border-radius: 5px; border-bottom-left-radius: 0px; border-top-left-radius: 0px; cursor: pointer">
@@ -132,14 +45,14 @@
 
                 </div>
                 
-                <div class="col-md-5 mt-3" style="display: flex; flex-direction: row; align-self: center; justify-content: flex-end">
+                <div class="col-md-5 mt-3 d-flex justify-content-start justify-content-md-end" style="flex-direction: row; align-self: center">
 
-                    <div class="text-center" style=" width: 33%; height: 50px;margin-right:5px">
+                    <div class="text-center" style=" height: 50px;margin-right:5px">
                         <!--Este botón abre el modal del carrito de compras-->
-                        <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#cartModal"  style="width:100%;height:50px" type="button">CARRITO <i class="bi bi-cart2" style="height: 16px; margin-left: 10px;"></i></button>
+                        <button class="btn btn-outline-dark py-3 px-xxl-5" data-bs-toggle="modal" data-bs-target="#cartModal"  style="width:100%;" type="button">CARRITO <i class="bi bi-cart2" style="height: 16px; margin-left: 10px;"></i></button>
                     </div>
-                    <div class="text-center" style=" width: 33%; height: 50px;margin-right:5px">
-                        <button type="button" class="btn btn-outline-danger backgroundHover-rojo" style="width:100%;height:50px">INGRESAR</button>
+                    <div class="text-center" style=" height: 50px;margin-right:5px">
+                        <a href="login.html"><button type="button" class="btn btn-outline-danger py-3 px-xxl-5 backgroundHover-rojo" style="width:100%;">INGRESAR</button></a>
                     </div>
                 </div>                
             </div>
@@ -153,230 +66,230 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item me-3 ms-5">
+                        <li class="nav-item me-3 ms-0 ms-xl-5">
                             <!-- menú desplegable de productos -->
                             <div class="dropdown">
-                                <button class="btn btn-danger background-rojo fw-bold dropdown-toggle" style="width:100%;height:45px" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-danger background-rojo fw-bold mt-3 mt-lg-0 ms-3 ms-lg-0 dropdown-toggle" style="width:100%;height:45px" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 PRODUCTOS
                                 </button>
-                                <ul class="dropdown-menu">
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria fw-bold" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Acessorios para celulares
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Auriculares</a></li>
+                                <ul class="dropdown-menu ms-3 ms-lg-0 menuProductos">
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria fw-bold" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Acessorios para celulares
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Auriculares</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Cables</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Cargadores/Adaptadores</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cables</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Cocina
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Accesorios de Cocina</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Ollas y Sartenes</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Vasos y Tazas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Platos</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Repostería</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cargadores/Adaptadores</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Belleza y cuidado personal
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Maquillaje</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Cepillos y Peines</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Cremas corporales</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Accesorios de Higiene</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Colonias</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Cocina
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Accesorios de Cocina</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Calzado
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Zapatos</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Zapatillas Deportivas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Zapatillas Casuales</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Sandalias</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Pantuflas</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Ollas y Sartenes</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Electrónica
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Pilas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Teclados/Mouse</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Parlantes</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Iluminación</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Extensiones</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Vasos y Tazas</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Ferretería
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Herramientas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Candados</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Infladores</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Platos</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Hogar y decoración
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Alfombras</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Relojes</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Organizadores</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Adornos</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Repostería</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Belleza y cuidado personal
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Maquillaje</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Abarrotes
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Conservas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Lácteos</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Refrigerados</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Bebidas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cepillos y Peines</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Jardinería
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Decoración</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Floreros</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Macetas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cremas corporales</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Juguetería
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Juegos de Mesa</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Pelotas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Rompecabezas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Peluches</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Libros</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Accesorios de Higiene</a></li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Librería
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Cuadernos</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Materiales</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Carpetas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Adhesivos</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
+                                        </ul>
+                                    </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Colonias</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Calzado
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Zapatos</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Zapatillas Deportivas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Zapatillas Casuales</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Sandalias</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Pantuflas</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Electrónica
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Pilas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Teclados/Mouse</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Parlantes</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Iluminación</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Extensiones</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Ferretería
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Herramientas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Candados</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Infladores</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Hogar y decoración
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Alfombras</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Relojes</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Organizadores</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Adornos</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Abarrotes
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Conservas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Lácteos</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Refrigerados</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Bebidas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Jardinería
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Decoración</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Floreros</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Macetas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Juguetería
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Juegos de Mesa</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Pelotas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Rompecabezas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Peluches</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Libros</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Librería
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Cuadernos</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Materiales</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Carpetas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Adhesivos</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Otros</a></li>
-                                    </ul>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="dropend">
-                                    <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
-                                    Limpieza
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Artículos de Limpieza</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Balde</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Trapos</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Escobas</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item subcategoria" href="productos.html">Accesorios de Baño</a></li>
-                                    </ul>
-                                </li>
+                                    <li class="dropend">
+                                        <a class="dropdown-item dropdown-toggle py-2 categoria" href="#" id="dropdownMenuLink" data-bs-toggle="dropdown" data-bs-offset="10,0" aria-expanded="false">
+                                        Limpieza
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Artículos de Limpieza</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Balde</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Trapos</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Escobas</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item subcategoria" href="productos.html">Accesorios de Baño</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="nav-item mx-3">
-                        <a class="nav-link active fw-bold" aria-current="page" href="#">HOME</a>
+                        <a class="nav-link active fw-bold" aria-current="page" href="index.html">HOME</a>
                         </li>
                         <li class="nav-item mx-3">
-                        <a class="nav-link fw-bold" href="#">¿QUIÉNES SOMOS?</a>
+                        <a class="nav-link fw-bold" href="quienes-somos.html">¿QUIÉNES SOMOS?</a>
                         </li>
                         <li class="nav-item mx-3">
-                        <a class="nav-link fw-bold" href="#">SUCURSALES</a>
+                        <a class="nav-link fw-bold" href="sucursales.html">SUCURSALES</a>
                         </li>
                         <li class="nav-item mx-3">
-                        <a class="nav-link fw-bold" href="#">PREGUNTAS FRECUENTES</a>
+                        <a class="nav-link fw-bold" href="preguntas.html">PREGUNTAS FRECUENTES</a>
                         </li>
                         <li class="nav-item mx-3">
                         <a class="nav-link fw-bold" href="cambio y devolucion.html">CAMBIO Y DEVOLUCIÓN</a>
                         </li>
                         <li class="nav-item ms-3">
-                        <button type="button" class="btn btn-dark fw-bold" style="width:100%;height:45px">CATALOGO PERS.</button>
+                        <button type="button" class="btn btn-dark fw-bold py-2 py-lg-1 py-xl-2" style="width:100%;">CATALOGO PERS.</button>
                         </li>
                     </ul>
                 </div>
@@ -385,133 +298,209 @@
     </header>
     <!--Final del header-->
 
-    <div class="container-fluid text-center background-rojo text-white fs-2 py-4 mt-5 shadow-banner">
-        <span class="fw-bold">CONFIRMANDO PEDIDO</span>
+    <!--Carrusel de imágenes-->
+    <div id="carouselExampleIndicators" class="carousel slide mt-4">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img style="height: 73vh;" src="/img/index/carrusel-img1.png" class="d-block w-100" alt="Imagen carrusel 1">
+            </div>
+            <div class="carousel-item">
+                <img style="height: 73vh;" src="/img/index/carrusel-img2.png" class="d-block w-100" alt="Imagen carrusel 2">
+            </div>
+            <div class="carousel-item">
+                <img style="height: 73vh;" src="/img/index/carrusel-img3.png" class="d-block w-100" alt="Imagen carrusel 3">
+            </div>
+            <div class="carousel-item">
+                <img style="height: 73vh;" src="/img/index/carrusel-img2.png" class="d-block w-100" alt="Imagen carrusel 3">
+            </div>
+            <div class="carousel-item">
+                <img style="height: 73vh;" src="/img/index/carrusel-img4.jpeg" class="d-block w-100" alt="Imagen carrusel 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 
-    <!--Contenedor de los productos del pedido-->
-    <div class="container" style="width:60vw;" id="contenedor-pedido">
-        <p class="fs-1 fw-bold mt-5">MI PEDIDO</p>
-        <div id="pedidoItems"></div>
-        <div class="d-flex justify-content-between w-100 fs-3 mt-5 py-3 ps-2 pe-3 background-totalPedido shadow-sm">
-            <strong class="fw-medium">SUBTOTAL:</strong>
-            <strong class="fw-medium" id="TotalPedido">$0</strong>
+    <!-- Sección ofertas del mes -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-auto py-2 mt-4 fs-2 background-rojo text-white">
+                <p><span class="fw-bold">OFERTAS</span> DEL MES</p>
+            </div>
         </div>
-        <div class="d-flex justify-content-between w-100 fs-3 ps-2 pe-3 py-3 background-descuento shadow-sm">
-            <strong class="fw-medium">DESCUENTO:</strong>
-            <strong class="fw-medium" id="descuentoPedido">$0</strong>
+
+        <div class="row g-4 mt-2">
+            <!-- Tarjeta 1 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="offer-tag fw-bold">¡OFERTA!</div>
+                    <img src="https://electroluxpe.vtexassets.com/arquivos/ids/159270-400-400?v=638756633912070000" alt="Producto 1">
+                    <small class="text-muted">*No aplica descuentos vigentes.</small>
+                    <h6 class="mt-2 fw-bold text-danger fs-5">MODER-4007/00</h6>
+                    <p class="fs-5">Olla Arrocera Electrolux</p>
+                    <div class="product-price">S/.99.00</div>
+                    <div class="product-old-price">S/.120.00</div>
+                    <div class="qty-controls">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
+                        <input type="number" class="form-control mx-1" value="1" min="1">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="offer-tag fw-bold">¡OFERTA!</div>
+                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/425530.jpg" alt="Producto 2">
+                    <small class="text-muted">*No aplica descuentos vigentes.</small>
+                    <h6 class="mt-2 fw-bold text-danger fs-5">LAB-117-26003</h6>
+                    <p class="fs-5">cacerola antiadherente</p>
+                    <div class="product-price">S/.79.99</div>
+                    <div class="product-old-price">S/.89.99</div>
+                    <div class="qty-controls">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
+                        <input type="number" class="form-control mx-1" value="1" min="1">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="offer-tag fw-bold">¡OFERTA!</div>
+                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/290220.jpg" alt="Producto 3">
+                    <small class="text-muted">*No aplica descuentos vigentes.</small>
+                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-6280</h6>
+                    <p class="fs-5">Olla de Acero N°28</p>
+                    <div class="product-price">S/.125.00</div>
+                    <div class="product-old-price">S/.150.00</div>
+                    <div class="qty-controls">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
+                        <input type="number" class="form-control mx-1" value="1" min="1">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="offer-tag fw-bold">¡OFERTA!</div>
+                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/185860.jpg" alt="Producto 4">
+                    <small class="text-muted">*No aplica descuentos vigentes.</small>
+                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-7582</h6>
+                    <p class="fs-5">Cacerola Enlozada 24cm</p>
+                    <div class="product-price">S/.199.99</div>
+                    <div class="product-old-price">S/.220.00</div>
+                    <div class="qty-controls">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
+                        <input type="number" class="form-control mx-1" value="1" min="1">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+                </div>
+            </div>
+
         </div>
-        <div class="d-flex justify-content-between w-100 fs-3 py-3 ps-2 pe-3 background-totalPedido shadow-sm">
-            <strong class="fw-bold">TOTAL:</strong>
-            <strong class="fw-bold" id="TotalPedidoNeto">$0</strong>
+  </div>
+
+  <!-- Sección productos nuevos del mes -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-auto py-2 mt-5 fs-2 background-rojo text-white">
+                <p><span class="fw-bold">INGRESOS</span> DEL MES</p>
+            </div>
+        </div>
+
+        <div class="row g-4 mt-2">
+            <!-- Tarjeta 1 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="offer-tag">MIRA LO <span class="fw-bold">NUEVO!</span> </div>
+                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395780.jpg" alt="Producto 1">
+                    <h6 class="mt-2 fw-bold text-danger fs-5">MODER-4007/00</h6>
+                    <p class="fs-5">Sartén antiadherente 28cm</p>
+                    <div class="product-price">S/.217.00</div>
+                    <div class="qty-controls">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
+                        <input type="number" class="form-control mx-1" value="1" min="1">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="offer-tag">MIRA LO <span class="fw-bold">NUEVO!</span> </div>
+                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/4480.jpg" alt="Producto 2">
+                    <h6 class="mt-2 fw-bold text-danger fs-5">LAB-117-26003</h6>
+                    <p class="fs-5">Cacerola de Acero N°28</p>
+                    <div class="product-price">S/.120.00</div>
+                    <div class="qty-controls">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
+                        <input type="number" class="form-control mx-1" value="1" min="1">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="offer-tag">MIRA LO <span class="fw-bold">NUEVO!</span> </div>
+                    <img src="https://mayoristaprecioscuidados.com.ar/Admin/Imagenes/Items/395630.jpg" alt="Producto 3">
+                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-6280</h6>
+                    <p class="fs-5">Panquequera-Mango de Madera 22cm</p>
+                    <div class="product-price">S/.150.00</div>
+                    <div class="qty-controls">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
+                        <input type="number" class="form-control mx-1" value="1" min="1">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4 -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="offer-tag">MIRA LO <span class="fw-bold">NUEVO!</span> </div>
+                    <img src="https://m.media-amazon.com/images/I/81dnHMrSnXL.jpg" alt="Producto 4">
+                    <h6 class="mt-2 fw-bold text-danger fs-5">CL-7582</h6>
+                    <p class="fs-5">Sartén de Marmol 26cm</p>
+                    <div class="product-price">S/.230.00</div>
+                    <div class="qty-controls">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, -1)">-</button>
+                        <input type="number" class="form-control mx-1" value="1" min="1">
+                        <button class="btn btn-outline-danger btn-sm backgroundHover-rojo" onclick="updateQty(this, 1)">+</button>
+                    </div>
+                    <button class="btn btn-outline-danger w-100 backgroundHover-rojo">Agregar al Carrito</button>
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <!--Formulario de los datos del cliente-->
-    <div class="container mt-5 informacion-pedido">
-        <h1 class="fw-bold my-5">INFORMACIÓN DEL PEDIDO</h1>
-        <h2 class="fw-semibold my-5" id="datosPersonales">DATOS PERSONALES</h2>
-        <form class="row g-4">
-
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control info-input" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput" class="info-label">Nombre y Apellido</label>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword" class="info-label">Email</label>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control info-input" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput" class="info-label">Teléfono</label>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword" class="info-label">Número de Documento</label>
-                </div>
-            </div>
-
-
-            <h2 class="fw-semibold mt-5 mb-4" id="datosEnvio">DATOS DE ENVÍO</h2>
-
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
-                        <option selected>Seleccione una Región</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <label for="floatingSelect">Región</label>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
-                        <option selected>Seleccione una Provincia</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <label for="floatingSelect">Provincia</label>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
-                        <option selected>Seleccione un Distrito</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <label for="floatingSelect">Distrito</label>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword" class="info-label">Código Postal</label>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control info-input" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword" class="info-label">Direccion</label>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4"></div>
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="form-floating mb-3">
-                    <select class="form-select info-input" id="floatingSelect" aria-label="Floating label select example">
-                        <option selected>Seleccione un método de pago</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <label for="floatingSelect">Forma de Pago</label>
-                </div>
-            </div> 
-            <div class="col-12">
-                <div class="form-floating">
-                    <textarea class="form-control info-input" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 180px"></textarea>
-                    <label for="floatingTextarea2">Observaciones...</label>
-                </div>
-            </div>
-
-            <div class="col-12 text-center text-sm-end mt-5 pt-4">
-                <button type="submit" id="botonConfirmarPedido" class="btn btn-danger background-rojo fw-bold py-3 px-5"><span class="mx-4 fs-5">CONFIRMAR PEDIDO</span></button>
-            </div>
-
-        </form>
-    </div>
-    <!-- Fin formulario  -->
 
     <!-- Footer -->
     <footer>
@@ -526,12 +515,12 @@
                     </div>
 
                     
-                    <div class="col-12 col-md-5 ms-5 d-flex justify-content-end align-items-center footer-extra">
-                        <div class="text-center mx-5">
+                    <div class="col-12 col-md-5 ms-0 ms-sm-5 d-flex justify-content-around justify-content-sm-end align-items-center footer-extra">
+                        <div class="text-center mx-0 mx-sm-5 mt-4 mt-sm-0">
                         <img src="https://cdn-icons-png.flaticon.com/512/5949/5949054.png" alt="Envios" class="footer-icon-img-large">
                         <p class="mt-2 mb-0">Envíos a Domicilio</p>
                         </div>
-                        <div class="text-center mx-5">
+                        <div class="text-center mx-0  mx-sm-5 mt-4 mt-sm-0">
                         <img src="https://img.freepik.com/vector-premium/icono-navegacion-tienda-graficos-vectoriales-negro_1178600-1146.jpg?w=360" alt="Sucursales" class="footer-icon-img-large">
                         <p class="mt-2 mb-0">3 Sucursales</p>
                         </div>
@@ -552,8 +541,8 @@
             </iframe>
         </div>
 
-        <div class="bg-black text-white fs-5 py-4 ps-5 text-center d-flex flex-column flex-md-row justify-content-start align-items-center gap-2">
-            <span class="ms-5">&copy; Copyright</span>
+        <div class="bg-black text-white fs-5 py-4 ps-0 ps-sm-5 text-center d-flex flex-column flex-md-row justify-content-start align-items-center gap-2">
+            <span class="ms-0 ms-sm-5">&copy; Copyright</span>
             <span> Todos Los Derechos Reservados.</span>
         </div>
     </footer>
@@ -583,44 +572,27 @@
             </div>
         </div>
     </div>
+
+
     <!-- Botones flotantes -->
-<div class="botones-flotantes">
-    <!-- Volver arriba -->
-  <button class="btn-volver-arriba" id="btnArriba">
-    <i class="bi bi-arrow-up"></i>
-  </button>
-  <!-- Carrito -->  
-  <button class="btn-flotante carrito" id="btnCarrito" data-bs-toggle="modal" data-bs-target="#cartModal">
-    <i class="bi bi-cart3"></i>
-    <span class="texto-boton">Abrir carrito de pedido</span>
-  </button>
-  <!-- WhatsApp -->
-  <a href="https://wa.me/51999999999" target="_blank" class="btn-flotante whatsapp">
-    <i class="bi bi-whatsapp"></i>
-    <span class="texto-boton">¡Consultanos por Whatsapp!</span>
-  </a>
-</div>
-  
+    <div class="botones-flotantes">
+        <!-- Volver arriba -->
+        <button class="btn-volver-arriba" id="btnArriba">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+        <!-- Carrito -->  
+        <button class="btn-flotante carrito" id="btnCarrito" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <i class="bi bi-cart3"></i>
+            <span class="texto-boton">Abrir carrito de pedido</span>
+        </button>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/51956190217" target="_blank" class="btn-flotante whatsapp">
+            <i class="bi bi-whatsapp"></i>
+            <span class="texto-boton">¡Consultanos por Whatsapp!</span>
+        </a>
+    </div>
 
-    <script src="/javaScript/funcionalidades.js"></script>
-    <script src="/javaScript/finalizarPedido.js"></script>
+    <script src="tests.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script>
-      // Botón volver arriba
-const btnArriba = document.getElementById("btnArriba");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {
-    btnArriba.style.display = "flex";
-  } else {
-    btnArriba.style.display = "none";
-  }
-});
-
-btnArriba.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-    </script>
-  </body>
+</body>
 </html>
